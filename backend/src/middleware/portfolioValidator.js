@@ -12,6 +12,24 @@ function stripHtml(value) {
   return value.replace(/<[^>]*>/g, '').trim();
 }
 
+function isHttpsUrl(value) {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
+function isHttpUrl(value) {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 function collectUrlErrors(obj, path, errors) {
   if (typeof obj !== 'object' || obj === null) return;
 
@@ -25,11 +43,11 @@ function collectUrlErrors(obj, path, errors) {
 
     if (typeof value === 'string' && value.length > 0) {
       if (IMAGE_URL_KEYS.has(key)) {
-        if (!/^https:\/\/.+/.test(value)) {
+        if (!isHttpsUrl(value)) {
           errors.push(`"${fullPath}" must be an HTTPS URL`);
         }
       } else if (URL_KEYS.has(key)) {
-        if (!/^https?:\/\/.+/.test(value)) {
+        if (!isHttpUrl(value)) {
           errors.push(`"${fullPath}" must be a valid URL (http or https)`);
         }
       }
@@ -56,14 +74,16 @@ function sanitizeObject(obj) {
 }
 
 export const validatePortfolioSlug = (req, res, next) => {
-  const slug = req.params.slug ?? req.body?.slug;
+  const rawSlug = req.params.slug ?? req.body?.slug;
 
-  if (!slug) {
+  if (typeof rawSlug !== 'string' || rawSlug.trim() === '') {
     return res.status(400).json({
       success: false,
       error: 'Portfolio slug is required.',
     });
   }
+
+  const slug = rawSlug.trim();
 
   if (!SLUG_PATTERN.test(slug)) {
     return res.status(400).json({
@@ -72,6 +92,7 @@ export const validatePortfolioSlug = (req, res, next) => {
     });
   }
 
+  if (req.body) req.body.slug = slug;
   next();
 };
 
