@@ -6,7 +6,7 @@ export default function Hero() {
     <>
       <style>
         {`
-          @keyframes cinematic-fade-up {
+          `@keyframes` cinematic-fade-up {
             0% { opacity: 0; transform: translateY(30px) scale(0.95); filter: blur(8px); }
             100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
           }
@@ -14,7 +14,16 @@ export default function Hero() {
             animation: cinematic-fade-up 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             opacity: 0;
           }
+          `@media` (prefers-reduced-motion: reduce) {
+            .animate-cinematic {
+              animation: none;
+              opacity: 1;
+              transform: none;
+              filter: none;
+            }
+          }
         `}
+      </style>
       </style>
       <section className="relative w-full min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] text-white font-sans selection:bg-neutral-800">
         {/* Cinematic Backdrop - Deep Gradient and Glow */}
