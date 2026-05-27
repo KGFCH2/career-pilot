@@ -1,3 +1,19 @@
+# [1.46.0](https://github.com/anurag3407/career-pilot/compare/v1.45.0...v1.46.0) (2026-05-27)
+
+
+### Bug Fixes
+
+* add null safety and fix React keys ([bede42d](https://github.com/anurag3407/career-pilot/commit/bede42d80791d8e2f321ac84b199d60532485d64))
+* clean TemplateGallery, comment out missing templates ([b96d6e1](https://github.com/anurag3407/career-pilot/commit/b96d6e172f88d9ee4e9ba52f9365a3a97552d1fc))
+
+
+### Features
+
+* implement complete Liquid Glass portfolio template ([3eb4bc1](https://github.com/anurag3407/career-pilot/commit/3eb4bc1df57348569bd0e1f4fa4d5668b3d118f6))
+* implement complete Liquid Glass portfolio template ([d7c894c](https://github.com/anurag3407/career-pilot/commit/d7c894c3ccd8a749db4c07a928d1677faff5892f))
+* implement Geometric Shapes Theme Hero section ([ac5df6f](https://github.com/anurag3407/career-pilot/commit/ac5df6fe8ea8fc69a423414a63e8728ac8dfd8d2))
+* update Geometric Shapes Hero section UI ([04f0464](https://github.com/anurag3407/career-pilot/commit/04f046484d9fbc58dfb81e20511f40855abc9ae8))
+
 # [1.45.0](https://github.com/anurag3407/career-pilot/compare/v1.44.1...v1.45.0) (2026-05-27)
 
 
