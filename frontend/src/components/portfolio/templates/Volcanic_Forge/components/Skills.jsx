@@ -8,7 +8,7 @@ export default function Skills({ skills }) {
   return (
     <section className="py-24 relative w-full z-10 flex justify-center">
       <div className="w-full max-w-6xl mx-auto">
-        <LavaAnimate className="!flex w-full" particleCount={90} formedDelay={1800} meltAmount={3}>
+        <LavaAnimate className="flex! w-full" particleCount={90} formedDelay={1800} meltAmount={3}>
           <div className="w-full">
             <SectionHeader title="Skills" />
             

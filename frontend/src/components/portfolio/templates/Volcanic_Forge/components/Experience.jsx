@@ -7,7 +7,7 @@ import SectionHeader from './SectionHeader';
 export default function Experience({ experience }) {
   return (
     <section className="py-24 w-full relative z-10">
-      <LavaAnimate className="!flex w-full flex-col" particleCount={70} formedDelay={1800} meltAmount={3}>
+      <LavaAnimate className="flex! w-full flex-col" particleCount={70} formedDelay={1800} meltAmount={3}>
         <div className="w-full">
           <SectionHeader title="Experience" />
           

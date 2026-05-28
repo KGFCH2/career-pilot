@@ -6,7 +6,7 @@ import LavaAnimate from '../LavaAnimate';
 export default function Contact({ email, location }) {
   return (
     <section className="py-24 w-full relative z-10 border-t border-stone-800/50 mt-12 flex justify-center">
-      <LavaAnimate className="!flex w-full justify-center" particleCount={70} formedDelay={1700} meltAmount={3}>
+      <LavaAnimate className="flex! w-full justify-center" particleCount={70} formedDelay={1700} meltAmount={3}>
         <div className="max-w-3xl mx-auto text-center w-full">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }} transition={{ duration: 0.6, delay: 0 }} className="mb-8 inline-block p-4 bg-stone-900/50 rounded-full text-orange-500">
             <Mail size={32} />
