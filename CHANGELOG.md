@@ -1,3 +1,11 @@
+## [1.62.1](https://github.com/anurag3407/career-pilot/compare/v1.62.0...v1.62.1) (2026-05-28)
+
+
+### Bug Fixes
+
+* add ErrorBoundary to lazy-loaded legal routes to prevent app crash on chunk load failure ([5f8310b](https://github.com/anurag3407/career-pilot/commit/5f8310bf8a0bc0c22cbf823625a170beabb02f09))
+* lazy-load legal pages to prevent ad-blocker crash on startup ([a9845f6](https://github.com/anurag3407/career-pilot/commit/a9845f6dec37eadf76fab705ffa974f2ce49f90f))
+
 # [1.62.0](https://github.com/anurag3407/career-pilot/compare/v1.61.0...v1.62.0) (2026-05-28)
 
 
