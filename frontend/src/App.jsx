@@ -26,14 +26,11 @@ const ResumeBuilder = lazy(() => import('./pages/ResumeBuilder'));
 import TextToResume from './pages/TextToResume';
 import About from './components/portfolio/templates/Tech_Startup/About';
 import ChatbotPortfolio from "./components/portfolio/templates/Chatbot_Portfolio";
-
 import GamifiedXP from "./components/portfolio/templates/Gamified_XP";
 import TelescopeZoom from "./components/portfolio/templates/Telescope_Zoom";
-
 import DayNightCycle from './components/portfolio/templates/Day_Night_Cycle/index.jsx';
-
-
 import JobTracker from './pages/JobTracker';
+
 const Community = lazy(() => import('./pages/Community'));
 import { NotFound } from './pages';
 
@@ -58,10 +55,6 @@ import FellowshipMessages from './pages/fellowship/FellowshipMessages';
 import FellowshipChat from './pages/fellowship/FellowshipChat';
 import SecuritySettings from './pages/SecuritySettings';
 import LinkedInCallback from './pages/LinkedInCallback';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import TermsOfService from './pages/TermsOfService';
-import CookiePolicy from './pages/CookiePolicy';
-import OpenRouterCallback from './pages/OpenRouterCallback';
 
 
 import LegalPageErrorBoundary from './components/LegalPageErrorBoundary';
@@ -77,29 +70,6 @@ const Upload = lazy(() => import('./pages/Upload'));
 const Enhance = lazy(() => import('./pages/Enhance'));
 const ResumeView = lazy(() => import('./pages/ResumeView'));
 const JobAlerts = lazy(() => import('./pages/JobAlerts'));
-const TextToResume = lazy(() => import('./pages/TextToResume'));
-const About = lazy(() => import('./components/portfolio/templates/Tech_Startup/About'));
-const ChatbotPortfolio = lazy(() => import('./components/portfolio/templates/Chatbot_Portfolio'));
-const GamifiedXP = lazy(() => import('./components/portfolio/templates/Gamified_XP'));
-const JobTracker = lazy(() => import('./pages/JobTracker'));
-const InterviewPrep = lazy(() => import('./pages/InterviewPrep'));
-const UserProfile = lazy(() => import('./pages/UserProfile'));
-const EmailGenerator = lazy(() => import('./pages/EmailGenerator'));
-const LinkedInOptimizer = lazy(() => import('./pages/LinkedInOptimizer'));
-const FellowshipLayout = lazy(() => import('./pages/fellowship/FellowshipLayout'));
-const Onboarding = lazy(() => import('./pages/fellowship/Onboarding'));
-const Challenges = lazy(() => import('./pages/fellowship/Challenges'));
-const Settings = lazy(() => import('./pages/Settings'));
-const ChallengeDetail = lazy(() => import('./pages/fellowship/ChallengeDetail'));
-const CreateChallenge = lazy(() => import('./pages/fellowship/CreateChallenge'));
-const MyProposals = lazy(() => import('./pages/fellowship/MyProposals'));
-const MyChallenges = lazy(() => import('./pages/fellowship/MyChallenges'));
-const ChallengeProposals = lazy(() => import('./pages/fellowship/ChallengeProposals'));
-const Verify = lazy(() => import('./pages/fellowship/Verify'));
-const FellowshipMessages = lazy(() => import('./pages/fellowship/FellowshipMessages'));
-const FellowshipChat = lazy(() => import('./pages/fellowship/FellowshipChat'));
-const SecuritySettings = lazy(() => import('./pages/SecuritySettings'));
-const LinkedInCallback = lazy(() => import('./pages/LinkedInCallback'));
 const OpenRouterCallback = lazy(() => import('./pages/OpenRouterCallback'));
 const ResumeHub = lazy(() => import('./pages/hubs/ResumeHub'));
 const JobsHub = lazy(() => import('./pages/hubs/JobsHub'));
@@ -215,8 +185,6 @@ function AppRoutes() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<PublicRoute><Home /></PublicRoute>} />
-
-        
         <Route path="/login" element={<PublicRoute><Suspense fallback={<LoadingScreen label="Loading Login..." />}><Login /></Suspense></PublicRoute>} />
         <Route path="/register" element={<PublicRoute><Suspense fallback={<LoadingScreen label="Loading Registration..." />}><Register /></Suspense></PublicRoute>} />
         <Route path="/auth/linkedin/callback" element={<Suspense fallback={<LoadingScreen label="Loading callback..." />}><LinkedInCallback /></Suspense>} />
@@ -337,98 +305,6 @@ function AppRoutes() {
   } 
 />
 
-        <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
-        <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
-        <Route path="/auth/linkedin/callback" element={<LinkedInCallback />} />
-        <Route path="/auth/openrouter/callback" element={<OpenRouterCallback />} />
-
-        {/* Legal Pages (Public) */}
-        <Route path="/privacy" element={<PrivacyPolicy />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/terms" element={<TermsOfService />} />
-        <Route path="/cookies" element={<CookiePolicy />} />
-
-        {/* Template Gallery Route (Registered at /templates) */}
-        <Route path="/templates" element={<RouteErrorBoundary><TemplateGallery /></RouteErrorBoundary>} />
-        <Route path="/templates/chatbot" element={<ChatbotPortfolio />} />
-
-        <Route path="/templates/gamified-xp" element={<GamifiedXP />} />
-        <Route path="/templates/telescope-zoom" element={<TelescopeZoom />} />
-
-        <Route path="/templates/day-night-cycle" element={<DayNightCycle />} />
-
-        {/* Core Protected Routes */}
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading Dashboard...</div>}>
-                <Dashboard />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/upload" element={<ProtectedRoute><Upload /></ProtectedRoute>} />
-        <Route
-          path="/resume-builder"
-          element={
-            <ProtectedRoute>
-              <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading Resume Builder...</div>}>
-                <ResumeBuilder />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/text-to-resume" element={<ProtectedRoute><TextToResume /></ProtectedRoute>} />
-        <Route path="/enhance/:resumeId" element={<ProtectedRoute><Enhance /></ProtectedRoute>} />
-        <Route path="/resume/:resumeId" element={<ProtectedRoute><ResumeView /></ProtectedRoute>} />
-        <Route
-          path="/jobs"
-          element={
-            <ProtectedRoute>
-              <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading Jobs...</div>}>
-                <JobSearch />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/job-alerts" element={<ProtectedRoute><JobAlerts /></ProtectedRoute>} />
-        <Route path="/job-tracker" element={<ProtectedRoute><JobTracker /></ProtectedRoute>} />
-        <Route
-          path="/community"
-          element={
-            <ProtectedRoute>
-              <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading Community...</div>}>
-                <Community />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/interview-prep" element={<ProtectedRoute><InterviewPrep /></ProtectedRoute>} />
-        <Route path="/profile" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-        <Route path="/profile/:uid" element={<ProtectedRoute><UserProfile /></ProtectedRoute>} />
-        <Route path="/security" element={<ProtectedRoute><SecuritySettings /></ProtectedRoute>} />
-        <Route path="/email-generator" element={<ProtectedRoute><EmailGenerator /></ProtectedRoute>} />
-        <Route path="/linkedin-optimizer" element={<ProtectedRoute><LinkedInOptimizer /></ProtectedRoute>} />
-        <Route path="/deployments" element={<ProtectedRoute><Deployments /></ProtectedRoute>} />
-        <Route path="/settings" element={<ProtectedRoute><Settings /></ProtectedRoute>} />
-
-        {/* Hub Routes */}
-        <Route path="/hub/resume" element={<ProtectedRoute><ResumeHub /></ProtectedRoute>} />
-        <Route path="/hub/jobs" element={<ProtectedRoute><JobsHub /></ProtectedRoute>} />
-        <Route path="/hub/portfolio" element={<ProtectedRoute><PortfolioHub /></ProtectedRoute>} />
-        <Route path="/hub/career" element={<ProtectedRoute><CareerGrowthHub /></ProtectedRoute>} />
-        <Route path="/hub/community" element={<ProtectedRoute><CommunityHub /></ProtectedRoute>} />
-        <Route
-          path="/github-dashboard"
-          element={
-            <ProtectedRoute>
-              <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading GitHub Dashboard...</div>}>
-                <GitHubDashboard />
-              </Suspense>
-            </ProtectedRoute>
-          }
-        />
 
         {/* Nested Fellowship Routes */}
         <Route path="/fellowship" element={<ProtectedRoute><FellowshipLayout /></ProtectedRoute>}>
