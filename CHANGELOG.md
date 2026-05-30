@@ -1,3 +1,10 @@
+# [1.104.0](https://github.com/anurag3407/career-pilot/compare/v1.103.0...v1.104.0) (2026-05-30)
+
+
+### Features
+
+* complete responsive Doctor_Medical template with all sub-components ([b06d432](https://github.com/anurag3407/career-pilot/commit/b06d432dcca8de3ade6d4a2b4d1cff7bb61dada2))
+
 # [1.103.0](https://github.com/anurag3407/career-pilot/compare/v1.102.0...v1.103.0) (2026-05-30)
 
 
