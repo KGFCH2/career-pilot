@@ -1,3 +1,11 @@
+# [1.125.0](https://github.com/anurag3407/career-pilot/compare/v1.124.0...v1.125.0) (2026-06-01)
+
+
+### Features
+
+* consolidate all three portfolio templates in single branch ([e40677a](https://github.com/anurag3407/career-pilot/commit/e40677a82b73e8d82b312a0150a5c08e8ffc8a03))
+* implement Memphis Pop portfolio template (Retro / Nostalgic) ([bcfb86c](https://github.com/anurag3407/career-pilot/commit/bcfb86c74c289cf4e3416dc3eca41e10a775e110)), closes [#1946](https://github.com/anurag3407/career-pilot/issues/1946) [#000](https://github.com/anurag3407/career-pilot/issues/000)
+
 # [1.124.0](https://github.com/anurag3407/career-pilot/compare/v1.123.0...v1.124.0) (2026-06-01)
 
 
