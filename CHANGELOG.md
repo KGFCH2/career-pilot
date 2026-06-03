@@ -1,3 +1,10 @@
+# [1.131.0](https://github.com/anurag3407/career-pilot/compare/v1.130.0...v1.131.0) (2026-06-03)
+
+
+### Features
+
+* added linkedin public job scraper ([051f446](https://github.com/anurag3407/career-pilot/commit/051f446ac099ec7d35af97079375c5673cc86ff6))
+
 # [1.130.0](https://github.com/anurag3407/career-pilot/compare/v1.129.0...v1.130.0) (2026-06-03)
 
 
