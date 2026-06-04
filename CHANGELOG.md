@@ -1,3 +1,16 @@
+# [1.144.0](https://github.com/anurag3407/career-pilot/compare/v1.143.0...v1.144.0) (2026-06-04)
+
+
+### Bug Fixes
+
+* **line-art:** clean shared helper import ([86d94de](https://github.com/anurag3407/career-pilot/commit/86d94de40ad1a17ce2b3d5481e2cba63c4c0c347))
+* **line-art:** import motion in shared helpers ([8c82b78](https://github.com/anurag3407/career-pilot/commit/8c82b784ecd3e11fb54d2111f5bb4fdc8dee84eb))
+
+
+### Features
+
+* add Line Art portfolio template split into sections ([c7278f2](https://github.com/anurag3407/career-pilot/commit/c7278f299ee8a79c20ece2f5dd823878c1c8d0b4))
+
 # [1.143.0](https://github.com/anurag3407/career-pilot/compare/v1.142.0...v1.143.0) (2026-06-04)
 
 
