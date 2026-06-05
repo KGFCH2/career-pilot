@@ -1,3 +1,10 @@
+## [1.156.1](https://github.com/anurag3407/career-pilot/compare/v1.156.0...v1.156.1) (2026-06-05)
+
+
+### Bug Fixes
+
+* restrict API key config logs to development environment only ([1e797cd](https://github.com/anurag3407/career-pilot/commit/1e797cda53a7735df177228f020a559ed33ee6a9)), closes [#2880](https://github.com/anurag3407/career-pilot/issues/2880)
+
 # [1.156.0](https://github.com/anurag3407/career-pilot/compare/v1.155.0...v1.156.0) (2026-06-05)
 
 
