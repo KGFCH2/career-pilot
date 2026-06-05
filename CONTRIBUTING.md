@@ -59,13 +59,25 @@ git clone https://github.com/YOUR_USERNAME/career-pilot.git
 cd career-pilot
 ```
 
-### 3. Install Dependencies
+### 3. Add the Upstream Remote
+
+```bash
+git remote add upstream https://github.com/anurag3407/career-pilot.git
+```
+
+Verify the remotes:
+
+```bash
+git remote -v
+```
+
+### 4. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 4. Configure Environment Variables
+### 5. Configure Environment Variables
 
 ```bash
 cp .env.example .env
@@ -73,9 +85,10 @@ cp .env.example .env
 
 Fill in the required Firebase and API configuration values.
 
-### 5. Start the Development Server
+### 6. Start the Development Server
 
 ```bash
+cd frontend
 npm run dev
 ```
 
@@ -145,7 +158,12 @@ refactor/form-handling
 Run the following commands:
 
 ```bash
+cd frontend
+
+# Run lint checks
 npm run lint
+
+# Create a production build
 npm run build
 ```
 
