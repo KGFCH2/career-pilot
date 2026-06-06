@@ -12,8 +12,7 @@ async function testOptimizeVariants() {
   try {
     buffer = await fs.readFile(SAMPLE);
   } catch (e) {
-    const sharpLib = (await import('sharp')).default;
-    buffer = await sharpLib({ create: { width: 200, height: 100, channels: 3, background: { r: 220, g: 220, b: 220 } } }).jpeg().toBuffer();
+    throw new Error(`Test fixture not found: ${SAMPLE}. Please add a sample.jpg to tests/fixtures/`);
   }
 
   const res = await optimizeBuffer(buffer, { widths: [null, 100], formats: ['webp', 'jpeg'], quality: 70 });
