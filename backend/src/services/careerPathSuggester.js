@@ -28,17 +28,9 @@ const CAREER_PATHS = {
     "DevOps Engineer",
   ],
 
-  "data analyst": [
-    "Data Scientist",
-    "ML Engineer",
-    "Analytics Manager",
-  ],
+  "data analyst": ["Data Scientist", "ML Engineer", "Analytics Manager"],
 
-  "data scientist": [
-    "Senior Data Scientist",
-    "ML Engineer",
-    "AI Engineer",
-  ],
+  "data scientist": ["Senior Data Scientist", "ML Engineer", "AI Engineer"],
 
   "machine learning engineer": [
     "Senior ML Engineer",
@@ -72,17 +64,35 @@ function deterministicCareerPathSuggestion(
   skills = [],
   interests = [],
 ) {
-  const roleKey = currentRole.toLowerCase();
+  const roleKey = currentRole.trim().toLowerCase();
 
-  const suggestedPaths =
-    CAREER_PATHS[roleKey] || [
-      "Senior Specialist",
-      "Technical Lead",
-      "Engineering Manager",
-    ];
+  const normalizedSkills = Array.isArray(skills) ? skills : [];
+
+  const normalizedInterests = Array.isArray(interests) ? interests : [];
+
+  let suggestedPaths = CAREER_PATHS[roleKey] || [
+    "Senior Specialist",
+    "Technical Lead",
+    "Engineering Manager",
+  ];
+
+  const lowerInterests = normalizedInterests.map((interest) =>
+    interest.toLowerCase(),
+  );
+
+  if (
+    lowerInterests.some(
+      (interest) =>
+        interest.includes("ai") || interest.includes("machine learning"),
+    )
+  ) {
+    if (!suggestedPaths.includes("AI Engineer")) {
+      suggestedPaths = ["AI Engineer", ...suggestedPaths];
+    }
+  }
 
   return {
-    currentProfileSummary: `${currentRole} with ${experienceYears} years of experience and expertise in ${skills.slice(0, 5).join(", ") || "multiple domains"}.`,
+    currentProfileSummary: `${currentRole} with ${experienceYears} years of experience and expertise in ${normalizedSkills.slice(0, 5).join(", ") || "multiple domains"}.`,
 
     careerPaths: suggestedPaths.map((path, index) => ({
       title: path,
@@ -90,11 +100,7 @@ function deterministicCareerPathSuggestion(
 
       reasoning: `${path} is a logical next step based on your current experience, skill set, and professional growth trajectory.`,
 
-      requiredSkills: [
-        "Leadership",
-        "System Design",
-        "Problem Solving",
-      ],
+      requiredSkills: ["Leadership", "System Design", "Problem Solving"],
 
       learningRoadmap: [
         "Build advanced real-world projects",
@@ -142,10 +148,7 @@ export const suggestCareerPaths = async (
   interests = [],
   aiProvider,
 ) => {
-  if (
-    typeof currentRole !== "string" ||
-    !currentRole.trim()
-  ) {
+  if (typeof currentRole !== "string" || !currentRole.trim()) {
     throw new Error("Current role is required");
   }
 
@@ -192,9 +195,7 @@ Rules:
 - Return JSON only
 `;
 
-    const result = await provider.generateContent(
-      prompt,
-    );
+    const result = await provider.generateContent(prompt);
 
     const cleanedText = result.text
       .replace(/```json\n?/g, "")
@@ -209,70 +210,42 @@ Rules:
       throw new Error("Invalid JSON response");
     }
 
-    const parsed = JSON.parse(
-      cleanedText.slice(start, end + 1),
-    );
+    const parsed = JSON.parse(cleanedText.slice(start, end + 1));
 
     return {
       currentProfileSummary:
-        typeof parsed.currentProfileSummary ===
-        "string"
+        typeof parsed.currentProfileSummary === "string"
           ? parsed.currentProfileSummary
           : "",
 
       careerPaths: Array.isArray(parsed.careerPaths)
         ? parsed.careerPaths.map((path) => ({
-            title:
-              typeof path?.title === "string"
-                ? path.title
-                : "",
+            title: typeof path?.title === "string" ? path.title : "",
 
             matchScore: Math.min(
               100,
-              Math.max(
-                0,
-                Number(path?.matchScore) || 0,
-              ),
+              Math.max(0, Number(path?.matchScore) || 0),
             ),
 
             reasoning:
-              typeof path?.reasoning === "string"
-                ? path.reasoning
-                : "",
+              typeof path?.reasoning === "string" ? path.reasoning : "",
 
-            requiredSkills: Array.isArray(
-              path?.requiredSkills,
-            )
-              ? path.requiredSkills.filter(
-                  (item) =>
-                    typeof item === "string",
-                )
+            requiredSkills: Array.isArray(path?.requiredSkills)
+              ? path.requiredSkills.filter((item) => typeof item === "string")
               : [],
 
-            learningRoadmap: Array.isArray(
-              path?.learningRoadmap,
-            )
-              ? path.learningRoadmap.filter(
-                  (item) =>
-                    typeof item === "string",
-                )
+            learningRoadmap: Array.isArray(path?.learningRoadmap)
+              ? path.learningRoadmap.filter((item) => typeof item === "string")
               : [],
           }))
         : [],
 
-      recommendedNextSteps: Array.isArray(
-        parsed.recommendedNextSteps,
-      )
-        ? parsed.recommendedNextSteps.filter(
-            (item) => typeof item === "string",
-          )
+      recommendedNextSteps: Array.isArray(parsed.recommendedNextSteps)
+        ? parsed.recommendedNextSteps.filter((item) => typeof item === "string")
         : [],
     };
   } catch (error) {
-    console.error(
-      "AI career path suggestion failed, using fallback:",
-      error,
-    );
+    console.error("AI career path suggestion failed, using fallback:", error);
 
     return deterministicCareerPathSuggestion(
       currentRole,
