@@ -1,3 +1,11 @@
+## [1.198.2](https://github.com/anurag3407/career-pilot/compare/v1.198.1...v1.198.2) (2026-06-09)
+
+
+### Bug Fixes
+
+* **backend:** add fallback routes to return HTTP 400 for malformed interview IDs ([779de78](https://github.com/anurag3407/career-pilot/commit/779de78e8992997c3463324b46de38b44ccfca38))
+* **backend:** restrict interview id routes to valid ObjectIds to prevent route shadowing ([e95bbb5](https://github.com/anurag3407/career-pilot/commit/e95bbb5c90c718f28e8f1294e542a2fb28bf9f3f))
+
 ## [1.198.1](https://github.com/anurag3407/career-pilot/compare/v1.198.0...v1.198.1) (2026-06-09)
 
 
