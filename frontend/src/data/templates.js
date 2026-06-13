@@ -40,6 +40,19 @@ export const templates = [
     "isComplete": true
   },
   {
+    "id": "Git_Commit_History_Tree",
+    "title": "Git Commit History Tree",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Interactive",
+    "author": "Raman Kumar",
+    "views": 50000,
+    "rating": 5.0,
+    "image": "/template-previews/Git_Commit_History_Tree.png",
+    "createdAt": "2026-06-13",
+    "isComplete": true
+  },
+  {
     "id": "Fluid_Simulation_3D_WebGL",
     "title": "Fluid Simulation 3D WebGL",
     "category": "Portfolio",
