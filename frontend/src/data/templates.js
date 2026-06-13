@@ -16,6 +16,17 @@ export const templates = [
   {
     "id": "Forensic_Investigator_Desk",
     "title": "Forensic Investigator Desk",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Interactive",
+    "author": "ShaktiShrey-01",
+    "views": 0,
+    "rating": 0,
+    "image": "/template-previews/Forensic_investigator_desk.png",
+    "createdAt": "2026-06-11",
+    "isComplete": true
+  },
+  {
     "id": "IKEA_Assembly_Manual",
     "title": "IKEA Assembly Manual",
     "category": "Portfolio",
@@ -28,6 +39,7 @@ export const templates = [
     "createdAt": "2026-06-13",
     "isComplete": true
   },
+  {
     "id": "Endless_Runner_Minigame",
     "title": "Endless Runner Minigame",
     "category": "Portfolio",
@@ -36,15 +48,10 @@ export const templates = [
     "author": "ShaktiShrey-01",
     "views": 0,
     "rating": 0,
-    "image": "/template-previews/Forensic_investigator_desk.png", 
-    "createdAt": "2026-06-11",
-    "isComplete": true
-  },
     "image": "/template-previews/Endless_Runner_Minigame.png",
     "createdAt": "2026-06-12",
-    isComplete: true
-}
-,
+    "isComplete": true
+  },
   {
     "id": "Fluid_Simulation_3D_WebGL",
     "title": "Fluid Simulation 3D WebGL",
@@ -2773,6 +2780,19 @@ export const templates = [
     "views": 3200,
     "rating": 5.0,
     "image": "/templates/Book_Page_Flip_3D_Render.png",
+    "createdAt": "2026-06-13",
+    "isComplete": true
+  },
+  {
+    "id": "Crossword_Puzzle_Word_Fill",
+    "title": "Crossword Puzzle Word Fill",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Crossword_Puzzle_Word_Fill",
+    "author": "System",
+    "views": 1050,
+    "rating": 4.8,
+    "image": "/template-previews/crossword_puzzle_word_fill.png",
     "createdAt": "2026-06-13",
     "isComplete": true
   }
