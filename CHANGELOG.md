@@ -1,3 +1,10 @@
+# [1.237.0](https://github.com/anurag3407/career-pilot/compare/v1.236.0...v1.237.0) (2026-06-14)
+
+
+### Features
+
+* implement crossword puzzle word fill portfolio template with global context binding ([90c1c3f](https://github.com/anurag3407/career-pilot/commit/90c1c3f648dcfdeecc256b55a661649483f47f9b))
+
 # [1.236.0](https://github.com/anurag3407/career-pilot/compare/v1.235.0...v1.236.0) (2026-06-14)
 
 
